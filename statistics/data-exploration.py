@@ -1,5 +1,8 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
-df = pd.read_csv("../dataset/food-recipes.csv")
+df = pd.read_csv("../dataset/food.csv")
 
-print(df.to_string())
+df.plot(kind='hist', y='servings')
+
+plt.show()
