@@ -36,3 +36,10 @@ final_tags = re.sub(' +', ' ', final_tags)
 
 wordcloud = wc.WordCloud(background_color='white', collocations=False, regexp=r'\w[\w-]+', scale=1, width=500, height=500).generate(final_tags);
 wordcloud.to_file("statistics/wordcloud_tags.png")
+
+plt.scatter(df["serving_size"], df["servings"])
+plt.xlabel("Serving size (g)")
+plt.ylabel("Number of servings")
+plt.xlim(-100, 16000)
+plt.ylim(-10, 600)
+plt.savefig("statistics/servings_size_scatter.png")
