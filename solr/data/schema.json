@@ -1,4 +1,55 @@
 {
+    "add-field-type": [{
+            "name": "listField",
+            "class": "solr.TextField",
+            "indexAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.StandardTokenizerFactory"
+                },
+                "filters": [
+                    { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
+                    { "class": "solr.LowerCaseFilterFactory" }
+                ]
+            },
+            "queryAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.StandardTokenizerFactory"
+                },
+                "filters": [
+                    { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
+                    { "class": "solr.LowerCaseFilterFactory" }
+                ]
+            }
+        },
+        {
+            "name": "text_body",
+            "class": "solr.TextField",
+            "analyzer": {
+                "tokenizer": {
+                    "class": "solr.StandardTokenizerFactory"
+                },
+                "filters": [
+                    { "class": "solr.StopFilterFactory", "words": "stopwords.txt", "ignoreCase": "true" },
+                    { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
+                    { "class": "solr.LowerCaseFilterFactory" }
+                ]
+            }
+        },
+        {
+            "name": "text_standard",
+            "class": "solr.TextField",
+            "analyzer": {
+                "tokenizer": {
+                    "class": "solr.StandardTokenizerFactory"
+                },
+                "filters": [
+                    { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
+                    { "class": "solr.LowerCaseFilterFactory" }
+                ]
+            }
+        }
+    ],
+
     "add-field": [{
             "name": "identifier",
             "type": "pint",
@@ -8,21 +59,21 @@
         },
         {
             "name": "name",
-            "type": "string",
+            "type": "text_standard",
             "indexed": "true",
             "stored": "true",
             "required": "true"
         },
         {
             "name": "description",
-            "type": "string",
+            "type": "text_body",
             "indexed": "true",
             "stored": "true",
             "required": "true"
         },
         {
             "name": "ingredients",
-            "type": "string",
+            "type": "listField",
             "indexed": "true",
             "stored": "true",
             "required": "true",
@@ -44,7 +95,7 @@
         },
         {
             "name": "steps",
-            "type": "string",
+            "type": "text_body",
             "indexed": "true",
             "stored": "true",
             "required": "true",
@@ -52,7 +103,7 @@
         },
         {
             "name": "tags",
-            "type": "string",
+            "type": "listField",
             "indexed": "true",
             "stored": "true",
             "required": "true",
@@ -60,7 +111,7 @@
         },
         {
             "name": "search_terms",
-            "type": "string",
+            "type": "listField",
             "indexed": "true",
             "stored": "true",
             "required": "true",
