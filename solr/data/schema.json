@@ -1,0 +1,70 @@
+{
+    "add-field": [{
+            "name": "identifier",
+            "type": "pint",
+            "indexed": "true",
+            "stored": "true",
+            "required": "true"
+        },
+        {
+            "name": "name",
+            "type": "string",
+            "indexed": "true",
+            "stored": "true",
+            "required": "true"
+        },
+        {
+            "name": "description",
+            "type": "string",
+            "indexed": "true",
+            "stored": "true",
+            "required": "true"
+        },
+        {
+            "name": "ingredients",
+            "type": "string",
+            "indexed": "true",
+            "stored": "true",
+            "required": "true",
+            "multiValued": "true"
+        },
+        {
+            "name": "serving_size",
+            "type": "pint",
+            "indexed": "true",
+            "stored": "true",
+            "required": "true"
+        },
+        {
+            "name": "servings",
+            "type": "pint",
+            "indexed": "true",
+            "stored": "true",
+            "required": "true"
+        },
+        {
+            "name": "steps",
+            "type": "string",
+            "indexed": "true",
+            "stored": "true",
+            "required": "true",
+            "multiValued": "true"
+        },
+        {
+            "name": "tags",
+            "type": "string",
+            "indexed": "true",
+            "stored": "true",
+            "required": "true",
+            "multiValued": "true"
+        },
+        {
+            "name": "search_terms",
+            "type": "string",
+            "indexed": "true",
+            "stored": "true",
+            "required": "true",
+            "multiValued": "true"
+        }
+    ]
+}
