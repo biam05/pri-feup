@@ -1,23 +1,33 @@
 {
-    "add-field-type": [{
+    "add-field-type": [
+        {
             "name": "listField",
             "class": "solr.TextField",
-            "indexAnalyzer": {
+            "analyzer": {
                 "tokenizer": {
-                    "class": "solr.StandardTokenizerFactory"
+                    "class": "solr.ClassicTokenizerFactory"
                 },
                 "filters": [
+                    { "class": "solr.StopFilterFactory", "words": "stop.txt", "ignoreCase": "true" },
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
-                    { "class": "solr.LowerCaseFilterFactory" }
+                    { "class": "solr.LowerCaseFilterFactory" },
+                    { "class": "solr.EnglishMinimalStemFilterFactory"}
                 ]
-            },
-            "queryAnalyzer": {
+            }
+        },
+        {
+            "name": "ingredientsField",
+            "class": "solr.TextField",
+            "analyzer": {
                 "tokenizer": {
-                    "class": "solr.StandardTokenizerFactory"
+                    "class": "solr.ClassicTokenizerFactory"
                 },
                 "filters": [
+                    { "class": "solr.StopFilterFactory", "words": "stop.txt", "ignoreCase": "true" },
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
-                    { "class": "solr.LowerCaseFilterFactory" }
+                    { "class": "solr.PatternReplaceFilterFactory", "pattern": "[0-9]+", "replacement":""},
+                    { "class": "solr.LowerCaseFilterFactory" },
+                    { "class": "solr.EnglishMinimalStemFilterFactory"}
                 ]
             }
         },
@@ -31,35 +41,48 @@
                 "filters": [
                     { "class": "solr.StopFilterFactory", "words": "stopwords.txt", "ignoreCase": "true" },
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
-                    { "class": "solr.LowerCaseFilterFactory" }
+                    { "class": "solr.LowerCaseFilterFactory" },
+                    { "class": "solr.EnglishMinimalStemFilterFactory"}
                 ]
             }
         },
         {
-            "name": "text_standard",
+            "name": "text_title",
             "class": "solr.TextField",
-            "analyzer": {
+            "indexAnalyzer": {
                 "tokenizer": {
                     "class": "solr.StandardTokenizerFactory"
                 },
                 "filters": [
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
-                    { "class": "solr.LowerCaseFilterFactory" }
+                    { "class": "solr.LowerCaseFilterFactory" },
+                    { "class": "solr.EnglishMinimalStemFilterFactory"}
+                ]
+            },
+            "queryAnalyzer":{
+                "tokenizer": {
+                    "class": "solr.StandardTokenizerFactory"
+                },
+                "filters": [
+                    { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
+                    { "class": "solr.LowerCaseFilterFactory" },
+                    { "class": "solr.EnglishMinimalStemFilterFactory"}
                 ]
             }
         }
     ],
 
-    "add-field": [{
+    "add-field": [
+        {
             "name": "identifier",
             "type": "pint",
-            "indexed": "true",
-            "stored": "true",
+            "indexed": "false",
+            "stored": "false",
             "required": "true"
         },
         {
             "name": "name",
-            "type": "text_standard",
+            "type": "text_title",
             "indexed": "true",
             "stored": "true",
             "required": "true"
@@ -73,7 +96,7 @@
         },
         {
             "name": "ingredients",
-            "type": "listField",
+            "type": "ingredientsField",
             "indexed": "true",
             "stored": "true",
             "required": "true",
@@ -82,7 +105,7 @@
         {
             "name": "serving_size",
             "type": "pint",
-            "indexed": "true",
+            "indexed": "false",
             "stored": "true",
             "required": "true"
         },
@@ -98,7 +121,7 @@
             "type": "text_body",
             "indexed": "true",
             "stored": "true",
-            "required": "true",
+            "required": "true", 
             "multiValued": "true"
         },
         {

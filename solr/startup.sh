@@ -1,14 +1,17 @@
 #!/bin/bash
 
-echo "--- precreate-core recipes"
+echo "::::: precreate-core recipes ::::::"
 precreate-core recipes
 
 # Start Solr in background mode so we can use the API to upload the schema
-echo "--- solr start"
+echo ":::::: solr start ::::::"
 solr start
 
-echo "--- sleep 5"
+echo ":::::: sleep 5 ::::::"
 sleep 5
+
+echo "::::: stop.txt  ::::::"
+cp /data/stop.txt /var/solr/data/recipes
 
 # Schema definition via API
 #echo "--- curl schema"
@@ -18,9 +21,9 @@ curl -X POST -H 'Content-type:application/json' \
 
 
 # Populate collection
-echo -e "\n--- curl data"
+echo -e ":::::: curl data ::::::"
 curl http://localhost:8983/solr/recipes/update/csv --data-binary @/data/food.csv -H 'Content-type:text/plain; charset=utf-8'
 
 # Restart in foreground mode so we can access the interface
-echo -e "\n--- solr restart -f"
+echo -e ":::::: solr restart -f ::::::"
 solr restart -f
