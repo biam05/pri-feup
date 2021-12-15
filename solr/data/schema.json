@@ -1,6 +1,5 @@
 {
-    "add-field-type": [
-        {
+    "add-field-type": [{
             "name": "listField",
             "class": "solr.TextField",
             "analyzer": {
@@ -11,7 +10,7 @@
                     { "class": "solr.StopFilterFactory", "words": "stop.txt", "ignoreCase": "true" },
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
                     { "class": "solr.LowerCaseFilterFactory" },
-                    { "class": "solr.EnglishMinimalStemFilterFactory"}
+                    { "class": "solr.EnglishMinimalStemFilterFactory" }
                 ]
             }
         },
@@ -25,14 +24,14 @@
                 "filters": [
                     { "class": "solr.StopFilterFactory", "words": "stop.txt", "ignoreCase": "true" },
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
-                    { "class": "solr.PatternReplaceFilterFactory", "pattern": "[0-9]+", "replacement":""},
+                    { "class": "solr.PatternReplaceFilterFactory", "pattern": "[0-9]+", "replacement": "" },
                     { "class": "solr.LowerCaseFilterFactory" },
-                    { "class": "solr.EnglishMinimalStemFilterFactory"}
+                    { "class": "solr.EnglishMinimalStemFilterFactory" }
                 ]
             }
         },
         {
-            "name": "text_body",
+            "name": "bodyField",
             "class": "solr.TextField",
             "analyzer": {
                 "tokenizer": {
@@ -42,12 +41,12 @@
                     { "class": "solr.StopFilterFactory", "words": "stopwords.txt", "ignoreCase": "true" },
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
                     { "class": "solr.LowerCaseFilterFactory" },
-                    { "class": "solr.EnglishMinimalStemFilterFactory"}
+                    { "class": "solr.EnglishMinimalStemFilterFactory" }
                 ]
             }
         },
         {
-            "name": "text_title",
+            "name": "titleField",
             "class": "solr.TextField",
             "indexAnalyzer": {
                 "tokenizer": {
@@ -56,24 +55,23 @@
                 "filters": [
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
                     { "class": "solr.LowerCaseFilterFactory" },
-                    { "class": "solr.EnglishMinimalStemFilterFactory"}
+                    { "class": "solr.EnglishMinimalStemFilterFactory" }
                 ]
             },
-            "queryAnalyzer":{
+            "queryAnalyzer": {
                 "tokenizer": {
                     "class": "solr.StandardTokenizerFactory"
                 },
                 "filters": [
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
                     { "class": "solr.LowerCaseFilterFactory" },
-                    { "class": "solr.EnglishMinimalStemFilterFactory"}
+                    { "class": "solr.EnglishMinimalStemFilterFactory" }
                 ]
             }
         }
     ],
 
-    "add-field": [
-        {
+    "add-field": [{
             "name": "identifier",
             "type": "pint",
             "indexed": "false",
@@ -82,14 +80,14 @@
         },
         {
             "name": "name",
-            "type": "text_title",
+            "type": "titleField",
             "indexed": "true",
             "stored": "true",
             "required": "true"
         },
         {
             "name": "description",
-            "type": "text_body",
+            "type": "bodyField",
             "indexed": "true",
             "stored": "true",
             "required": "true"
@@ -118,10 +116,10 @@
         },
         {
             "name": "steps",
-            "type": "text_body",
+            "type": "bodyField",
             "indexed": "true",
             "stored": "true",
-            "required": "true", 
+            "required": "true",
             "multiValued": "true"
         },
         {
