@@ -23,6 +23,10 @@ curl -X POST -H 'Content-type:application/json' \
 # Populate collection
 echo -e ":::::: curl data ::::::"
 curl http://localhost:8983/solr/recipes/update/csv --data-binary @/data/food.csv -H 'Content-type:text/plain; charset=utf-8'
+#curl http://localhost:8983/solr/recipes/update/csv --data-binary @/data/food_subset1.csv -H 'Content-type:text/plain; charset=utf-8'
+#curl http://localhost:8983/solr/recipes/update/csv --data-binary @/data/food_subset2.csv -H 'Content-type:text/plain; charset=utf-8'
+#curl http://localhost:8983/solr/recipes/update/csv --data-binary @/data/food_subset3.csv -H 'Content-type:text/plain; charset=utf-8'
+#curl http://localhost:8983/solr/recipes/update/csv --data-binary @/data/food_subset4.csv -H 'Content-type:text/plain; charset=utf-8'
 
 # Restart in foreground mode so we can access the interface
 echo -e ":::::: solr restart -f ::::::"

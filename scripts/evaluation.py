@@ -6,19 +6,21 @@ import json
 import requests
 import pandas as pd
 
+INDEX = 1
+
 queries = [
-    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags%20score&fq=search_terms%3Adiabetic&indent=true&q.op=OR&q=diabetic%20dessert&qf=name%20search_terms%20tags%20ingredients%20description%20steps&wt=json",
-    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags%20score&fq=search_terms%3Adinner&indent=true&q.op=OR&q=christmas%20dinner&qf=name%20search_terms%20tags%20ingredients%20description%20steps&wt=json",
-    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags%20score&indent=true&q.op=OR&q=pancake%20-pan%20-griddle&qf=name%20search_terms%20tags%20ingredients%20description%20steps&wt=json",
-    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags%20score&fq=search_terms%3Adinner&fq=servings%3A8&fq=tags%3Adish&indent=true&q.op=OR&q=lasagna&qf=name%20search_terms%20tags%20ingredients%20description%20steps&wt=json"
+    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags&indent=true&q.op=OR&q=diabetic%20dessert&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json",
+    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags&indent=true&q.op=OR&q=christmas%20dinner&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json",
+    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags&indent=true&q.op=OR&q=pancake&qf=name%20search_terms%20tags%20ingredients%20description%20steps&wt=json",
+    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags&indent=true&q.op=OR&q=lasagna&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json"
 ]
 
 filtered_queries = [
-    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags%20score&fq=search_terms%3Adiabetic&indent=true&q.op=OR&q=diabetic%20dessert&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json",
-    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags%20score&fq=search_terms%3Adinner&indent=true&q.op=OR&q=christmas%20dinner&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json",
-    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags%20score&indent=true&q.op=OR&q=pancake%20-pan%20-griddle&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json",
-    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags%20score&fq=search_terms%3Adinner&fq=servings%3A8&fq=tags%3Adish&indent=true&q.op=OR&q=lasagna&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json",
-    ]
+    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags&fq=tags%3Adessert&fq=tags%3Adiabetic&indent=true&q.op=OR&q=diabetic%20dessert&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json",
+    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags&fq=search_terms%3Adinner&fq=tags%3Achristmas&indent=true&q.op=OR&q=christmas%20dinner&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json",
+    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags&indent=true&q.op=OR&q=pancake%20-pan%20-griddle&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json",
+    "http://localhost:8983/solr/recipes/select?defType=edismax&fl=identifier%20name%20description%20ingredients%20serving_size%20servings%20steps%20tags&fq=search_terms%3Adinner&fq=servings%3A8&fq=tags%3Adish&indent=true&q.op=OR&q=lasagna&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json"
+]
 
 def query_processing(q : int, filtered : bool, q_file : str, link : str):
     # Read qrels to extract relevant documents
@@ -118,12 +120,11 @@ def query_processing(q : int, filtered : bool, q_file : str, link : str):
     return disp
 
 
-for index in range(0, len(queries)):
-    url = queries[index]
-    print(f":: Query nº {index + 1}")
-    q_file = f'../solr/queries/qrel_{index + 1}.txt'
-    disp = query_processing(index, False, q_file, url)
-    url = filtered_queries[index]
-    print(f":: Query nº {index + 1} Filtered")
-    q_file = f'../solr/queries/qrel_{index + 1}.txt'
-    disp = query_processing(index, True, q_file, url)
+url = queries[INDEX - 1]
+print(f":: Query nº {INDEX}")
+q_file = f'../solr/queries/qrel_{INDEX}.txt'
+disp = query_processing(INDEX - 1, False, q_file, url)
+url = filtered_queries[INDEX - 1]
+print(f":: Query nº {INDEX} Filtered")
+q_file = f'../solr/queries/qrel_{INDEX}.txt'
+disp = query_processing(INDEX - 1, True, q_file, url)

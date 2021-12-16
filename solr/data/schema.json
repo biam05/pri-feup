@@ -7,7 +7,6 @@
                     "class": "solr.ClassicTokenizerFactory"
                 },
                 "filters": [
-                    { "class": "solr.StopFilterFactory", "words": "stop.txt", "ignoreCase": "true" },
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
                     { "class": "solr.LowerCaseFilterFactory" },
                     { "class": "solr.EnglishMinimalStemFilterFactory" }
@@ -24,7 +23,6 @@
                 "filters": [
                     { "class": "solr.StopFilterFactory", "words": "stop.txt", "ignoreCase": "true" },
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
-                    { "class": "solr.PatternReplaceFilterFactory", "pattern": "[0-9]+", "replacement": "" },
                     { "class": "solr.LowerCaseFilterFactory" },
                     { "class": "solr.EnglishMinimalStemFilterFactory" }
                 ]
