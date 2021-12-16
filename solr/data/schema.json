@@ -95,8 +95,7 @@
             "type": "ingredientsField",
             "indexed": "true",
             "stored": "true",
-            "required": "true",
-            "multiValued": "true"
+            "required": "true"
         },
         {
             "name": "serving_size",
@@ -117,24 +116,21 @@
             "type": "bodyField",
             "indexed": "true",
             "stored": "true",
-            "required": "true",
-            "multiValued": "true"
+            "required": "true"
         },
         {
             "name": "tags",
             "type": "listField",
             "indexed": "true",
             "stored": "true",
-            "required": "true",
-            "multiValued": "true"
+            "required": "true"
         },
         {
             "name": "search_terms",
             "type": "listField",
             "indexed": "true",
             "stored": "true",
-            "required": "true",
-            "multiValued": "true"
+            "required": "true"
         }
     ]
 }
