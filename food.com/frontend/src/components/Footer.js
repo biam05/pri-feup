@@ -5,7 +5,7 @@ import {Container, Toolbar, Typography} from '@mui/material';
 function Footer() {
   return (
 	<footer className="footer">
-		<Container maxWidth="xl">
+		<Container maxWidth="lg">
 			<Toolbar>
 				<Typography color="inherit">
 					Made with ♥ by G75

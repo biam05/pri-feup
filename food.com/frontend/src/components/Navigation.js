@@ -72,7 +72,7 @@ function Navigation() {
 
 	return (
 		<AppBar position="static" color="primary">
-			<Container maxWidth="xl">
+			<Container maxWidth="lg">
 				<Toolbar disableGutters className='toolbar'>
 					<Typography
 						variant="h5"

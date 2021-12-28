@@ -8,7 +8,7 @@ import {Card, CardContent, CardHeader, CardActions} from '@mui/material';
 function Recipes() {
   return (
 	<>
-		<Typography color="inherit" variant="h4"> All Recipes</Typography>
+		<Typography color="inherit" variant="h4">All Recipes</Typography>
 		<Grid container spacing={3} alignItems="stretch" className="grid">
 			<Grid item xs={12} sm={3}>
 				<Card>

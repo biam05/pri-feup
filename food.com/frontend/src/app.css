@@ -23,6 +23,12 @@ a {
     margin-top: .5em;
 }
 
+/** SINGLE RECIPE **/
+
+.singleRecipe{
+    margin-top: 1em;
+}
+
 /** footer **/
 
 .footer{

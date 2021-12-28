@@ -6,7 +6,7 @@ import {Container, Typography} from '@mui/material';
 
 function Results() {
   return (
-	<Container maxWidth="xl" className="results">
+	<Container maxWidth="lg" className="results">
 		<Outlet />
 	</Container>
     
