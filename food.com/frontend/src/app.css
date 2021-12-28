@@ -13,6 +13,16 @@ a {
     color: var(--black)
 }
 
+/** RESULTS **/
+
+.results{
+    margin-top: 2em;
+}
+
+.results .grid{
+    margin-top: .5em;
+}
+
 /** footer **/
 
 .footer{

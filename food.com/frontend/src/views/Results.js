@@ -2,14 +2,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
+import {Container, Typography} from '@mui/material';
+
 function Results() {
   return (
-    <div className="home">
-      <div class="container">
-        <h1 className="text-center mt-5">Results page</h1>
-        <Outlet />
-      </div>
-    </div>
+	<Container maxWidth="xl" className="results">
+		<Outlet />
+	</Container>
+    
   );
 }
 
