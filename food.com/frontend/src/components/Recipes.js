@@ -12,7 +12,7 @@ function Recipes() {
 		<Grid container spacing={3} alignItems="stretch" className="grid">
 			<Grid item xs={12} sm={3}>
 				<Card>
-					<CardHeader title="Crepes" style={{ textAlign: 'center' }}></CardHeader>
+					<CardHeader title="Grilled Garlic Cheese Grits" style={{ textAlign: 'center' }}></CardHeader>
 					<CardContent>
 						<Typography 
 							sx={{
@@ -23,7 +23,7 @@ function Recipes() {
 							}}
 							variant ="body1" 
 							gutterBottom> 
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis erat neque, sit amet tempus ipsum posuere et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id enim auctor, consectetur nunc a, scelerisque eros. Donec ut velit in magna faucibus interdum. Aliquam eget fringilla nunc. 
+						We love grits, this is another good way to serve them. A great alternative to a baked potato when served with grilled steak or chicken. I belive this recipe could be made with instant grits.The 2 1/2 hours for refrigeration is not include in time. The recipe comes from Tast of Home's Light and Tasty.
 						</Typography>
 					</CardContent>
 					<CardActions disableSpacing>

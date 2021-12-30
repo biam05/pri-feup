@@ -2,7 +2,19 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
 import { Link } from '@mui/material';
-import { Container, Breadcrumbs, Typography } from '@mui/material';
+import { Box, Grid, Breadcrumbs, Typography } from '@mui/material';
+
+const title = "Grilled Garlic Cheese Grits"
+
+const description = "A great alternative to a baked potato when served with grilled steak or chicken. I belive this recipe could be made with instant grits.The 2 1/2 hours for refrigeration is not include in time. The recipe comes from Tast of Home's Light and Tasty."
+const steps = ['I a sauce pan, bring water to a boil; slowly add grits and salt, stirring constantly; Reduce heat:simmer, uncovered, for 40-45 minutes or untill thickened, stirrin occasionally.', 'Add cheese and garlic; stir until cheese is melted, Spray 9-inch baking dish with nonstick cooking spray; Cover and refrigerate for 2 to 2 1/2 hours or until frim.', 'Before starting the grill, coat the grill rack with nonstick cooking spray; Cut the grits into 3-inch squares; Brush both sides with olive oil.', 'Grill, covered, over medium heat for 4 to 6 minutes on each side or until lightly browned.']
+
+const ingredients = ["4 cups water","1 cup uncooked old fashion grits","1 teaspoon salt","4 ounces shredded cheddar cheese","1-2 clove garlic, minced ","1 tablespoon olive oil"]
+const tags = ['time-to-make', 'course', 'main-ingredient', 'preparation', 'occasion', 'side-dishes', 'eggs-dairy', 'refrigerator', 'diabetic', 'vegetarian', 'grains', 'cheese', 'stove-top', 'dietary', 'low-cholesterol', 'low-calorie', 'comfort-food', 'low-carb', 'low-in-something', 'pasta-rice-and-grains', 'brunch', 'taste-mood', 'equipment', 'presentation', 'served-hot', '4-hours-or-less']
+const search_terms = ['diabetic', 'low-calorie', 'vegetarian', 'low-carb', 'side']
+
+const serving_size = 155
+const servings = 8
 
 function Recipe() {
 	let { recipeSlug } = useParams();
@@ -17,10 +29,47 @@ function Recipe() {
 				<Link underline="hover" color="inherit" href="/recipes">
 					All Recipes
 				</Link>
-				<Typography color="text.primary">Crepes</Typography>
+				<Typography color="text.primary">{title}</Typography>
 			</Breadcrumbs>
 			<div className="singleRecipe">
-				<Typography color="inherit" variant="h4">Crepes</Typography>
+				<Typography color="inherit" variant="h4">{title}</Typography>
+				<Box mt={2}>
+					<Grid container spacing={2}>
+						<Grid item xs={12} md={8} className="box">
+							<Grid container spacing = {2}>
+								<Grid item>
+									<Typography variant="h5">Description</Typography>
+									<Typography>{description}</Typography>
+								</Grid>
+								<Grid item>
+									<Typography variant="h5">Ingredients</Typography>					
+									{ingredients.map((ingredient) => (<Typography>{ingredient}</Typography>))}
+								</Grid>
+								<Grid item>
+									<Typography variant="h5">Steps</Typography>
+									{steps.map((step) => (<Typography>{step}</Typography>))}
+								</Grid>
+							</Grid>
+							
+						</Grid>
+						<Grid item xs={12} md={4} className="box">
+							<Grid container spacing={2}>
+								<Grid item>
+									<Typography variant="h6">Number of Servings (Serving Size)</Typography>
+									<Typography>{servings} ({serving_size}g)</Typography>
+								</Grid>
+								<Grid item>
+									<Typography variant="h6">Tags</Typography>
+									{tags.map((tag) => (<Typography display="inline">{tag} </Typography>))}
+								</Grid>
+								<Grid item>
+									<Typography variant="h6">Search Terms</Typography>
+									{search_terms.map((search_term) => (<Typography display="inline">{search_term} </Typography>))}
+								</Grid>
+							</Grid>
+						</Grid>
+					</Grid>
+				</Box>
 			</div>
 		</>
 	);
