@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
 import { Link } from '@mui/material';
-import { Box, Grid, Breadcrumbs, Typography } from '@mui/material';
+import { Box, Chip, Grid, Breadcrumbs, Typography } from '@mui/material';
 
 const title = "Grilled Garlic Cheese Grits"
 
@@ -60,11 +60,16 @@ function Recipe() {
 								</Grid>
 								<Grid item>
 									<Typography variant="h6">Tags</Typography>
-									{tags.map((tag) => (<Typography display="inline">{tag} </Typography>))}
+									<div className="tags">
+										{tags.map((tag) => (<Chip className="tag" label={tag} />))}
+									</div>
 								</Grid>
 								<Grid item>
 									<Typography variant="h6">Search Terms</Typography>
-									{search_terms.map((search_term) => (<Typography display="inline">{search_term} </Typography>))}
+									<div className="search_terms">
+										{search_terms.map((search_term) => (
+											<Chip className="search_term" label={search_term} />))}
+									</div>
 								</Grid>
 							</Grid>
 						</Grid>

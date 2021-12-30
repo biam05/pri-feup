@@ -26,6 +26,14 @@ a {
     margin-top: .5em;
 }
 
+.tag, .search_term{
+    margin: 2.5px;
+}
+
+.search_term{
+    border-radius: 3px !important;
+}
+
 /** SINGLE RECIPE **/
 
 .singleRecipe{
