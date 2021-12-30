@@ -29,43 +29,56 @@ function Recipe() {
 				<Link underline="hover" color="inherit" href="/recipes">
 					All Recipes
 				</Link>
-				<Typography color="text.primary">{title}</Typography>
+				<Typography color="#1f8af5">{title}</Typography>
 			</Breadcrumbs>
 			<div className="singleRecipe">
 				<Typography color="inherit" variant="h4">{title}</Typography>
 				<Box mt={2}>
 					<Grid container spacing={2}>
 						<Grid item xs={12} md={8} className="box">
-							<Grid container spacing = {2}>
+							<Grid container spacing = {2}>								
 								<Grid item>
-									<Typography variant="h5">Description</Typography>
+									<Typography variant="h5" gutterBottom>Description</Typography>
 									<Typography>{description}</Typography>
 								</Grid>
 								<Grid item>
-									<Typography variant="h5">Ingredients</Typography>					
-									{ingredients.map((ingredient) => (<Typography>{ingredient}</Typography>))}
+									<Typography variant="h5" gutterBottom>Ingredients</Typography>	
+									<ul>
+										{ingredients.map((ingredient) => (<li><Typography>{ingredient}</Typography></li>))}
+									</ul>				
+									
 								</Grid>
 								<Grid item>
-									<Typography variant="h5">Steps</Typography>
-									{steps.map((step) => (<Typography>{step}</Typography>))}
+									<Typography variant="h5" gutterBottom>Steps</Typography>
+									<ol>
+										{steps.map((step) => (<li><Typography>{step}</Typography></li>))}
+									</ol>
 								</Grid>
 							</Grid>
 							
 						</Grid>
 						<Grid item xs={12} md={4} className="box">
 							<Grid container spacing={2}>
-								<Grid item>
-									<Typography variant="h6">Number of Servings (Serving Size)</Typography>
-									<Typography>{servings} ({serving_size}g)</Typography>
+								<Grid item md={12}>
+									<Grid container spacing={1}>
+										<Grid item xs={12} md={6} >
+											<Typography variant="h6" gutterBottom>Servings</Typography>
+											<Typography >{servings} servings</Typography>
+										</Grid>
+										<Grid item xs={12} md={6}>
+											<Typography variant="h6" gutterBottom>Serving Size</Typography>
+											<Typography >{serving_size} g</Typography>
+										</Grid>
+									</Grid>
 								</Grid>
 								<Grid item>
-									<Typography variant="h6">Tags</Typography>
+									<Typography variant="h5" gutterBottom>Tags</Typography>
 									<div className="tags">
 										{tags.map((tag) => (<Chip className="tag" label={tag} />))}
 									</div>
 								</Grid>
 								<Grid item>
-									<Typography variant="h6">Search Terms</Typography>
+									<Typography variant="h5" gutterBottom>Search Terms</Typography>
 									<div className="search_terms">
 										{search_terms.map((search_term) => (
 											<Chip className="search_term" label={search_term} />))}
