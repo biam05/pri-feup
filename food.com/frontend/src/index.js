@@ -12,13 +12,16 @@ import Results from './views/Results'
 ReactDOM.render(
 	<Router>
 		<Navigation />
-		<Routes>
-			<Route path="/" element={<Home />} />
-			<Route path="/recipes" element={<Results />}>
-				<Route path="" element={<Recipes />} />
-				<Route path=":recipeSlug" element={<Recipe />} />
-			</Route>
-		</Routes>
+			<div id="#content-wrap">
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/recipes" element={<Results />}>
+						<Route path="" element={<Recipes />} />
+						<Route path=":recipeSlug" element={<Recipe />} />
+					</Route>
+				</Routes>
+			</div>
+			
 		<Footer />
 	</Router>,
 

@@ -53,10 +53,15 @@ ol{
 
 /** footer **/
 
+#content-wrap {
+    padding-bottom: 4rem;    /* Footer height */
+}
+
 .footer{
     width: 100%;
     background-color: var(--black);
     color: white;
-    position: fixed;
+    position: absolute;
     bottom: 0;
+    height: 4rem;            /* Footer height */
 }
