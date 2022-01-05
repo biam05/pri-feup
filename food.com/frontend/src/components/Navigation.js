@@ -71,9 +71,9 @@ function Navigation() {
 	};
 
 	return (
-		<AppBar position="static" color="primary" elevation={0}>
+		<AppBar position="static" color="primary" elevation={0}  className="navbar">
 			<Container maxWidth="lg">
-				<Toolbar disableGutters className='toolbar'>
+				<Toolbar disableGutters>
 					<Typography
 						variant="h5"
 						noWrap

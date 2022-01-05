@@ -1,12 +1,11 @@
 :root {
     --black: #333333;
-    --primary: #2E3B55;
 }
 
 body, html {
     margin: 0;    
     min-height: 100vh; 
-    background-color: whitesmoke;
+    background-color: rgb(245, 245, 245);
 }
 
 a {
@@ -16,6 +15,16 @@ a {
 
 ol{
     font-family: Arial, Helvetica, sans-serif;
+}
+
+/** HOME **/
+
+.cooking_ppl{
+    width: 90%;
+}
+
+.search_bar{
+    background-color: white;
 }
 
 /** RESULTS **/
@@ -32,13 +41,13 @@ ol{
 
 .tag, .search_term{
     margin: 2.5px;
-    background-color: #1f8af5 !important;
+    background-color: #2b8f83 !important;
     color: white !important;
     transition: all 0.5s;
 }
 
 .tag:hover, .search_term:hover{
-    background-color: #3e9cfa !important;
+    background-color: #38afa1 !important;
 }
 
 .search_term{

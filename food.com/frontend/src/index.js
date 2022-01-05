@@ -9,21 +9,36 @@ import Footer from './components/Footer'
 import Home from './views/Home'
 import Results from './views/Results'
 
+import { createTheme, ThemeProvider} from '@mui/material/styles';
+
+let theme = createTheme({
+	palette: {
+	  primary: {
+		main: '#2b8f83',
+	  },
+	  secondary: {
+		main: '#edf2ff',
+	  },
+	}
+  });
+
 ReactDOM.render(
-	<Router>
-		<Navigation />
-			<div id="#content-wrap">
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/recipes" element={<Results />}>
-						<Route path="" element={<Recipes />} />
-						<Route path=":recipeSlug" element={<Recipe />} />
-					</Route>
-				</Routes>
-			</div>
-			
-		<Footer />
-	</Router>,
+	<ThemeProvider theme={theme}>
+		<Router>
+			<Navigation />
+				<div id="#content-wrap">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/recipes" element={<Results />}>
+							<Route path="" element={<Recipes />} />
+							<Route path=":recipeSlug" element={<Recipe />} />
+						</Route>
+					</Routes>
+				</div>				
+			<Footer />
+		</Router>
+	</ThemeProvider>
+	,
 
 	document.getElementById("root")
 );
