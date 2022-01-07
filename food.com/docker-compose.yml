@@ -11,9 +11,9 @@ services:
     tty: true
 
 
-#  backend:
-#    build: ./backend
-#    ports:
-#      - 3001:3001
-#    volumes:
-#      - ./backend:/data
+  backend:
+    build: ./backend
+    ports:
+      - 3001:8983
+    volumes:
+      - ./backend:/data
