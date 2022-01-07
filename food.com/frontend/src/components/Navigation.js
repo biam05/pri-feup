@@ -14,8 +14,6 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 
-import * as Colors from '@mui/material/colors';
-
 import { NavLink } from "react-router-dom"
 
 const Search = styled('div')(({ theme }) => ({
@@ -73,8 +71,8 @@ function Navigation() {
 	};
 
 	return (
-		<AppBar position="static">
-			<Container maxWidth="xl">
+		<AppBar position="static" color="primary" elevation={0}  className="navbar">
+			<Container maxWidth="lg">
 				<Toolbar disableGutters>
 					<Typography
 						variant="h5"
