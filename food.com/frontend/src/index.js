@@ -2,10 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./app.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navigation from './components/Navigation'
 import Recipes from './components/Recipes'
 import Recipe from './components/Recipe'
-import Footer from './components/Footer'
 import Home from './views/Home'
 import Results from './views/Results'
 
@@ -25,7 +23,6 @@ let theme = createTheme({
 ReactDOM.render(
 	<ThemeProvider theme={theme}>
 		<Router>
-			<Navigation />
 				<div id="#content-wrap">
 					<Routes>
 						<Route path="/" element={<Home />} />
@@ -34,8 +31,7 @@ ReactDOM.render(
 							<Route path=":recipeSlug" element={<Recipe />} />
 						</Route>
 					</Routes>
-				</div>				
-			<Footer />
+				</div>	
 		</Router>
 	</ThemeProvider>
 	,
