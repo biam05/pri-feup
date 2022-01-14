@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { Helmet } from 'react-helmet';
+
 import { useParams } from "react-router";
 
 import { Link } from '@mui/material';
@@ -25,6 +27,9 @@ function Recipe() {
 
 	return (
 		<>
+			<Helmet>
+				<title>{title}</title>
+			</Helmet>
 			<Breadcrumbs aria-label="breadcrumb">
 				<Link underline="hover" color="inherit" href="/recipes">
 					All Recipes

@@ -1,15 +1,17 @@
 import React from "react";
+import { Helmet } from 'react-helmet';
 
-import { withStyles } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import NavigationHome from '../components/NavigationHome'
-import {Container, Grid, Box, Typography, TextField, Button} from '@mui/material';
-import { borderRadius } from "@mui/system";
+import {Container, Box, Typography, TextField, Button} from '@mui/material';
 
  
 function Home() {
   	return (
-		  
+		  <>
+		  <Helmet>
+			  <title>food.com</title>
+		  </Helmet>
 		  <div class="home">				
 		 	<NavigationHome />
 			<Container maxWidth="lg" style={{ display: 'flex', flexDirection:'column' , height: '75vh', justifyContent:'center', alignItems: 'center'}}>				
@@ -31,6 +33,8 @@ function Home() {
 					</Box>
 			</Container>
 		</div>
+		  </>
+		  
 	  );
 }
 
