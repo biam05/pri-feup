@@ -1,11 +1,10 @@
 import React from "react";
 
 import cooking from "../images/cooking_s.jpg";
+import SearchBar from "../components/Search.js"
 
 import SearchIcon from '@mui/icons-material/Search';
-
-import {Container, Grid, Box, Typography, TextField, Button} from '@mui/material';
-
+import {Container, Grid, Box, Typography, Button} from '@mui/material';
 
 function Home() {
   	return (
@@ -15,7 +14,7 @@ function Home() {
 					<Grid item md={4} style={{ display: "flex", alignItems: "center" }}>
 						<Box>
 							<Typography variant="h2">food.com</Typography>
-							<Typography variant="h6">Todas as suas receitas favoritas num só lugar.</Typography>
+							<Typography id="test2" variant="h6">Todas as suas receitas favoritas num só lugar.</Typography>
 						</Box>
 						
 						
@@ -32,9 +31,9 @@ function Home() {
 				
 				<Grid container direction="column" align="center" justify="center"  sx={{mt: 3}}>
 					<Grid item xl={12}>
-						<Typography variant="h4">Por onde vamos começar?</Typography>
+						<Typography id="test" variant="h4">Por onde vamos começar?</Typography>
 						<Box component="form" sx={{mt: 3}}>
-							<TextField style={{minWidth:'400px', maxWidth:'400px'}} className="search_bar" placeholder="Search..." variant="outlined" />
+							<SearchBar />
 							<Button
 								type="submit"
 								variant="contained"

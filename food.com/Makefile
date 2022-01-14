@@ -23,3 +23,6 @@ reset: dcdown dcbuild dcup
 
 #Stop and remove containers, build backend and run containers
 resetbackend: dcdown dcbackend dcup
+
+#Stop and remove containers, build frontend and run containers
+resetfrontend: dcdown dcfrontend dcup

@@ -1,8 +1,7 @@
-
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import {Container, Typography} from '@mui/material';
+import {Container} from '@mui/material';
 
 function Results() {
   return (
