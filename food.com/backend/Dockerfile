@@ -12,6 +12,8 @@ COPY data/schema.json /backend/data/schema.json
 
 COPY data/stop.txt /backend/data/stop.txt
 
-COPY startup.sh /backend/scripts/startup.sh
+COPY config/startup.sh /backend/scripts/startup.sh
+
+COPY config/web.xml /opt/solr-8.10.1/server/solr-webapp/webapp/WEB-INF/
 
 ENTRYPOINT ["/backend/scripts/startup.sh"]
