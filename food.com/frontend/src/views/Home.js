@@ -13,10 +13,10 @@ function Home() {
 		  	<Helmet>
 			  <title>food.com</title>
 		  	</Helmet>
-		  	<div class="home">				
+		  	<div className="home">				
 		 	<NavigationHome />
 			<Container maxWidth="lg" style={{ display: 'flex', flexDirection:'column' , height: '75vh', justifyContent:'center', alignItems: 'center'}}>				
-				<Box  style={{ display: 'flex', justifyContent:'center', alignItems: 'center'}}>
+				<Box style={{ display: 'flex', justifyContent:'center', alignItems: 'center'}}>
 					<Typography variant="h1" sx={{color: '#FFFFFF'}}>food</Typography>
 					<Typography variant="h1" className="dot">.</Typography>
 					<Typography variant="h1" sx={{color: '#FFFFFF'}}>com</Typography>
