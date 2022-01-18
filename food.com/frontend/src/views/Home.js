@@ -34,13 +34,13 @@ function Home() {
 						<Typography id="test" variant="h4">Por onde vamos começar?</Typography>
 						<Box component="form" sx={{mt: 3}}>
 							<SearchBar />
-							{/*<Button
+							<Button
 								type="submit"
 								variant="contained"
 								style={{maxHeight: '4em',  minHeight: '4em'}}
 							>
 								<SearchIcon></SearchIcon>
-							</Button>*/}
+							</Button>
 						</Box>
 					</Grid>
 				</Grid>
