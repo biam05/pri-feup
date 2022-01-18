@@ -20,7 +20,7 @@ const pressEnter = (event) => {
 };
 
 function SearchBar() {
-    return (<TextField style={{minWidth:'400px', maxWidth:'400px'}} id="searchBarInput" className="search_bar" placeholder="Search..." variant="outlined" onKeyDown={pressEnter}/>);
+    return (<TextField style={{minWidth:'400px', maxWidth:'400px', borderRadius:'15px 0px 0px 15px' }} className="search_bar" placeholder="What's for starters?" variant="outlined" onKeyDown={pressEnter}/>);
 }
 
 export default SearchBar;
