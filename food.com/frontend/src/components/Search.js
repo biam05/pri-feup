@@ -1,15 +1,11 @@
 import {TextField} from '@mui/material';
 
 function search(query) {
-	alert(query)
-	var request = `http://backend:3001/solr/recipes/select?defType=edismax&fl=name%20description%20ingredients%20serving_size%20servings%20steps%20tags&\
-	indent=true&q.op=OR&q=${query}&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json`;
+	var request = `http://localhost:3001/solr/recipes/select?defType=edismax&fl=name%20description%20ingredients%20serving_size%20servings%20steps%20tags&indent=true&q.op=OR&q=${query}&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&wt=json`;
 	var xmlHttp = new XMLHttpRequest();
 	xmlHttp.onreadystatechange = function() {
-		console.log(xmlHttp);
-		if (xmlHttp.readyState !== 4 || xmlHttp.status !== 200) {
-			alert(xmlHttp.status)
-			console.log("ERROR");
+		if (xmlHttp.readyState !== 1 || xmlHttp.status !== 0) {
+			alert("Error querying the recipe list");
 			return;
 		}
 		alert(xmlHttp.response);
@@ -21,8 +17,7 @@ function search(query) {
 
 const pressEnter = (event) => {
     if (event.key === "Enter") {
-        var query = document.getElementById("searchBarInput").innerHTML;
-        search(query);
+        search(event.target.value);
     }
 };
 
