@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/src
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    networks:
+      - solr
+
+  backend:
+    build: ./backend
+    ports:
+      - 8983:8983
+    volumes:
+      - ./backend:/data
+    networks:
+      - solr
+
+networks:
+  solr:
+    driver: bridge
