@@ -11,10 +11,10 @@ function RecipeItem(recipe) {
     let r = recipe.recipe
     return (
         <>
-           <Grid item md={12}>
-				<Grid container>
-					<Grid item md={10}>
-						<Box sx={{pb:2, borderBottom: 1, borderColor: 'grey.500'}}>						
+			<Grid item xs={12}>
+				<Box sx={{pb:2, borderBottom: 1, borderColor: 'grey.500'}}>
+					<Grid container>
+						<Grid item xs={11}>					
 							<Link onClick={handleOpen}>
 								<Typography variant="h6">{r.name}</Typography>
 							</Link>	
@@ -27,13 +27,12 @@ function RecipeItem(recipe) {
 								}}>
 									{r.description}
 							</Typography>
-						</Box>
-					</Grid>	
-					<Grid item md={2}>
-						<PersonIcon/><Typography>{r.servings}</Typography>
+						</Grid>	
+						<Grid item xs={1} style={{ display: 'flex', flexDirection:'row', justifyContent:'center', alignItems: 'center'}}>
+							<PersonIcon/><Typography>{r.servings}</Typography>
+						</Grid>
 					</Grid>
-				</Grid>
-				
+				</Box>
 			</Grid>
 			<Modal
 				open={open}

@@ -1,8 +1,8 @@
 
 import React from "react";
 import RecipeItem from '../components/RecipeItem'
-// import { Link } from "react-router-dom";
 import {Grid} from '@mui/material';
+
 
 function Recipes(recipes = []) {
 	console.log(recipes.documents)
@@ -15,6 +15,7 @@ function Recipes(recipes = []) {
 					<RecipeItem recipe={recipe}/></>					
 				)
 			}
+			
 		</Grid>
 	</>);
 }

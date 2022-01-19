@@ -74,6 +74,10 @@ ol{
     animation: color-change 3s infinite;
 }
 
+.result_box{
+    width: 100%;
+}
+
 /** RESULTS **/
 
 .results{
