@@ -1,10 +1,6 @@
-import React, { useEffect } from "react";
-import { Helmet } from 'react-helmet';
+import React from "react";
 
-import { useParams } from "react-router";
-
-import { Link } from '@mui/material';
-import { Box, Chip, Grid, Breadcrumbs, Typography } from '@mui/material';
+import { Box, Chip, Grid, Typography } from '@mui/material';
 
 const title = "Grilled Garlic Cheese Grits"
 
@@ -18,25 +14,22 @@ const search_terms = ['diabetic', 'low-calorie', 'vegetarian', 'low-carb', 'side
 const serving_size = 155
 const servings = 8
 
-function Recipe() {
-	let { recipeSlug } = useParams();
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 1200,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
-	useEffect(() => {
-	// Fetch post using the recipeSlug
-	}, [recipeSlug]);
+function Recipe() {
 
 	return (
-		<>
-			<Helmet>
-				<title>{title}</title>
-			</Helmet>
-			<Breadcrumbs aria-label="breadcrumb">
-				<Link underline="hover" color="inherit" href="/recipes">
-					All Recipes
-				</Link>
-				<Typography color="#1f8af5">{title}</Typography>
-			</Breadcrumbs>
-			<div className="singleRecipe">
+			<Box className="singleRecipe" sx={style}>
 				<Typography color="inherit" variant="h4">{title}</Typography>
 				<Box mt={2}>
 					<Grid container spacing={2}>
@@ -93,8 +86,7 @@ function Recipe() {
 						</Grid>
 					</Grid>
 				</Box>
-			</div>
-		</>
+			</Box>
 	);
 }
 

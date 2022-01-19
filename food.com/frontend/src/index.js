@@ -1,40 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./app.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Recipes from './components/Recipes'
-import Recipe from './components/Recipe'
-import Home from './views/Home'
-import Results from './views/Results'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-import { createTheme, ThemeProvider} from '@mui/material/styles';
-
-let theme = createTheme({
-	palette: {
-	  primary: {
-		main: '#2b8f83',
-	  },
-	  secondary: {
-		main: '#edf2ff',
-	  },
-	}
-  });
-
-ReactDOM.render(
-	<ThemeProvider theme={theme}>
-		<Router>
-				<div id="#content-wrap">
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/recipes" element={<Results />}>
-							<Route path="" element={<Recipes />} />
-							<Route path=":recipeSlug" element={<Recipe />} />
-						</Route>
-					</Routes>
-				</div>	
-		</Router>
-	</ThemeProvider>
-	,
-
-	document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById('root'));

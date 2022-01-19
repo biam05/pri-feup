@@ -24,6 +24,11 @@ ol{
 
 /** HOME **/
 
+#header{
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
 .home{
     min-height: 100vh; 
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("images/background2.jpg");
@@ -36,27 +41,27 @@ ol{
 
 @-webkit-keyframes color-change {
     0% { color: white }
-    50% { color: #2b8f83 }
+    50% { color: #1976d2 }
     100% { color: white  }
 }
 @-moz-keyframes color-change {
     0% { color: white }
-    50% { color: #2b8f83 }
+    50% { color: #1976d2 }
     100% { color: white  }
 }
 @-ms-keyframes color-change {
     0% { color: white }
-    50% { color: #2b8f83 }
+    50% { color: #1976d2 }
     100% { color: white  }
 }
 @-o-keyframes color-change {
     0% { color: white }
-    50% { color: #2b8f83 }
+    50% { color: #1976d2 }
     100% { color: white  }
 }
 @keyframes color-change {
     0% { color: white }
-    50% { color: #2b8f83 }
+    50% { color: #1976d2 }
     100% { color: white  }
 }
 
@@ -83,7 +88,7 @@ ol{
 
 .tag, .search_term{
     margin: 2.5px;
-    background-color: #2b8f83 !important;
+    background-color: #1976d2 !important;
     color: white !important;
     transition: all 0.5s;
 }
