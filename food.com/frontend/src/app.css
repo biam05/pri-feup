@@ -1,0 +1,95 @@
+:root {
+    --black: #333333;
+}
+
+body, html {
+    margin: 0;    
+    min-height: 100vh; 
+    background-color: rgb(245, 245, 245);
+}
+
+a {
+    text-decoration: none;
+    color: var(--black)
+}
+
+ol{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbarHome{
+    height: 7vh;
+    background-color: transparent !important;
+}
+
+/** HOME **/
+
+#header-background{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("images/header.jpg");
+    background-size: cover;
+    height: 15em;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+}
+
+.search_bar{
+    background-color: white;
+}
+
+@-webkit-keyframes color-change {
+    0% { color: white }
+    50% { color: #1976d2 }
+    100% { color: white  }
+}
+@-moz-keyframes color-change {
+    0% { color: white }
+    50% { color: #1976d2 }
+    100% { color: white  }
+}
+@-ms-keyframes color-change {
+    0% { color: white }
+    50% { color: #1976d2 }
+    100% { color: white  }
+}
+@-o-keyframes color-change {
+    0% { color: white }
+    50% { color: #1976d2 }
+    100% { color: white  }
+}
+@keyframes color-change {
+    0% { color: white }
+    50% { color: #1976d2 }
+    100% { color: white  }
+}
+
+.dot{
+    color: white;
+    -webkit-animation: color-change 3s infinite;
+    -moz-animation: color-change 3s infinite;
+    -o-animation: color-change 3s infinite;
+    -ms-animation: color-change 3s infinite;
+    animation: color-change 3s infinite;
+}
+
+.result_box{
+    width: 100%;
+}
+
+#results{
+    background-color: white;
+}
+
+#pagination{
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.tag{
+    margin: 2.5px;
+    background-color: #1976d2 !important;
+    color: white !important;
+    transition: all 0.5s;
+}
+
+.tag:hover{
+    background-color: #2692fd !important;
+}
