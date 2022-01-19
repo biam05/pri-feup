@@ -7,42 +7,47 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 800,
+  width: 1000,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
+  overflow:'scroll',
+  maxHeight:'80%',
+  display:'block',
   p: 4,
 };
 
 
 function parseSteps(steps){
 	let r
-	r = steps.replace("[", '')
-	r = r.replace("]", '')
+	r = steps.replaceAll("[", '')
+	r = r.replaceAll("]", '')
+	r = r.replaceAll("\"", '')
 	r = r.split('\',')
 	let rcopy = []
 	r.map(step => {
-		rcopy.push(step.replace('\'', ''))
+		rcopy.push(step.replaceAll('\'', ''))
 	})
 	return rcopy
 }
 
 function parseIngredients(ingredients){
 	let r
-	r = ingredients.replace("[", '')
-	r = r.replace("]", '')
+	r = ingredients.replaceAll("[", '')
+	r = r.replaceAll("]", '')
 	r = r.split('\",')
 	let rcopy = []
 	r.map(step => {
-		rcopy.push(step.replace('\"', ''))
+		rcopy.push(step.replaceAll('\"', ''))
 	})
 	return rcopy
 }
 
 function parseTags(tags){
 	let r
-	r = tags.replace("[", '')
-	r = r.replace("]", '')
+	r = tags.replaceAll("[", '')
+	r = r.replaceAll("]", '')
+	r = r.replaceAll("'", '')
 	r = r.split(',')
 	return r
 }
