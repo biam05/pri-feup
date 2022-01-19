@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Box, Chip, Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 
-const title = "Grilled Garlic Cheese Grits"
+const name = "Grilled Garlic Cheese Grits"
 
 const description = "A great alternative to a baked potato when served with grilled steak or chicken. I belive this recipe could be made with instant grits.The 2 1/2 hours for refrigeration is not include in time. The recipe comes from Tast of Home's Light and Tasty."
 const steps = ['I a sauce pan, bring water to a boil; slowly add grits and salt, stirring constantly; Reduce heat:simmer, uncovered, for 40-45 minutes or untill thickened, stirrin occasionally.', 'Add cheese and garlic; stir until cheese is melted, Spray 9-inch baking dish with nonstick cooking spray; Cover and refrigerate for 2 to 2 1/2 hours or until frim.', 'Before starting the grill, coat the grill rack with nonstick cooking spray; Cut the grits into 3-inch squares; Brush both sides with olive oil.', 'Grill, covered, over medium heat for 4 to 6 minutes on each side or until lightly browned.']
@@ -19,38 +19,38 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 1200,
+  width: 1000,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };
 
-function Recipe() {
-
+function Recipe(recipe = {name: name, description: description, steps: steps, ingredients: ingredients, tags: tags, search_terms: search_terms, serving_size: serving_size, servings: servings}) {
+	let r = recipe.recipe
 	return (
 			<Box className="singleRecipe" sx={style}>
-				<Typography color="inherit" variant="h4">{title}</Typography>
+				<Typography color="inherit" variant="h4">{r.name}</Typography>
 				<Box mt={2}>
 					<Grid container spacing={2}>
 						<Grid item xs={12} md={8} className="box">
 							<Grid container spacing = {2}>								
 								<Grid item>
 									<Typography variant="h5" gutterBottom>Description</Typography>
-									<Typography>{description}</Typography>
+									<Typography>{r.description}</Typography>
 								</Grid>
 								<Grid item>
 									<Typography variant="h5" gutterBottom>Ingredients</Typography>	
-									<ul>
+									{/* <ul>
 										{ingredients.map((ingredient) => (<li><Typography>{ingredient}</Typography></li>))}
-									</ul>				
+									</ul>	 */}			
 									
 								</Grid>
 								<Grid item>
 									<Typography variant="h5" gutterBottom>Steps</Typography>
-									<ol>
+									{/* <ol>
 										{steps.map((step) => (<li><Typography>{step}</Typography></li>))}
-									</ol>
+									</ol> */}
 								</Grid>
 							</Grid>
 							
@@ -61,26 +61,26 @@ function Recipe() {
 									<Grid container spacing={1}>
 										<Grid item xs={12} md={6} >
 											<Typography variant="h6" gutterBottom>Servings</Typography>
-											<Typography >{servings} servings</Typography>
+											<Typography >{r.servings} servings</Typography>
 										</Grid>
 										<Grid item xs={12} md={6}>
 											<Typography variant="h6" gutterBottom>Serving Size</Typography>
-											<Typography >{serving_size} g</Typography>
+											<Typography >{r.serving_size} g</Typography>
 										</Grid>
 									</Grid>
 								</Grid>
 								<Grid item>
 									<Typography variant="h5" gutterBottom>Tags</Typography>
-									<div className="tags">
-										{tags.map((tag) => (<Chip className="tag" label={tag} />))}
-									</div>
+									{/*<div className="tags">
+										{recipe.tags.map((tag) => (<Chip className="tag" label={tag} />))}
+									</div>*/}
 								</Grid>
 								<Grid item>
 									<Typography variant="h5" gutterBottom>Search Terms</Typography>
-									<div className="search_terms">
-										{search_terms.map((search_term) => (
+									{/*<div className="search_terms">
+										{recipe.search_terms.map((search_term) => (
 											<Chip className="search_term" label={search_term} />))}
-									</div>
+									</div>*/}
 								</Grid>
 							</Grid>
 						</Grid>

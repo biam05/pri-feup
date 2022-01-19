@@ -30,7 +30,7 @@ function clickButton(event) {
 function SearchBar() {
     return (
 		<Box component="form" sx={{mt: 3}}>
-			<TextField style={{minWidth:'400px', maxWidth:'400px', borderRadius:'15px 0px 0px 15px' }} id="searchBar" className="search_bar" placeholder="What's for starters?" variant="outlined" onKeyDown={pressEnter}/>
+			<TextField style={{minWidth:'700px', maxWidth:'700px', borderRadius:'15px 0px 0px 15px' }} id="searchBar" className="search_bar" placeholder="What's for starters?" variant="outlined" onKeyDown={pressEnter}/>
 			<Button
 				type="submit"
 				variant="contained"
