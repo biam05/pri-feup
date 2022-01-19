@@ -23,13 +23,14 @@ function pressEnter(event) {
 
 function clickButton(event) {
 	event.preventDefault();
-	search(event.target.previousSibling.value);
+	let searchBar = document.getElementById("searchBar")
+	search(searchBar.value);
 }
 
 function SearchBar() {
     return (
 		<Box component="form" sx={{mt: 3}}>
-			<TextField style={{minWidth:'400px', maxWidth:'400px', borderRadius:'15px 0px 0px 15px' }} className="search_bar" placeholder="What's for starters?" variant="outlined" onKeyDown={pressEnter}/>
+			<TextField style={{minWidth:'400px', maxWidth:'400px', borderRadius:'15px 0px 0px 15px' }} id="searchBar" className="search_bar" placeholder="What's for starters?" variant="outlined" onKeyDown={pressEnter}/>
 			<Button
 				type="submit"
 				variant="contained"
