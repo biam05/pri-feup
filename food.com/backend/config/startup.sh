@@ -10,8 +10,11 @@ solr start
 echo ":::::: sleep 5 ::::::"
 sleep 5
 
-echo "::::: stop.txt  ::::::"
+echo ":::::: stop.txt ::::::"
 cp ./data/stop.txt /var/solr/data/recipes
+
+echo ":::::: mysynonyms.txt ::::::"
+cp ./data/mysynonyms.txt /var/solr/data/recipes
 
 # Schema definition via API
 #echo "--- curl schema"

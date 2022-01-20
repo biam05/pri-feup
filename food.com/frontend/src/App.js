@@ -18,7 +18,10 @@ class App extends React.Component{
     }
 
     search(query, page = 1) {
-        var url = `http://localhost:8983/solr/recipes/select?defType=edismax&fl=name%20description%20ingredients%20serving_size%20servings%20steps%20tags&indent=true&q.op=OR&q=${query}&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&start=${10*(page - 1)}&wt=json`;
+        query = query.replaceAll("~", "");
+        query = query.replaceAll(" ", "~ ");
+        query = query.replaceAll("&", "~&");
+        var url = `http://localhost:8983/solr/recipes/select?defType=edismax&fl=name%20description%20ingredients%20serving_size%20servings%20steps%20tags&indent=true&q.op=OR&q=${query}~&qf=name%5E5%20search_terms%5E3%20tags%5E3%20ingredients%5E3%20description%20steps&start=${10*(page - 1)}&wt=json`;
         var request = new XMLHttpRequest();
         request.onreadystatechange = function() {
             if (request.readyState !== 4 || request.status !== 200) return;

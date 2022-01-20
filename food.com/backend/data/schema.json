@@ -2,21 +2,33 @@
     "add-field-type": [{
             "name": "listField",
             "class": "solr.TextField",
-            "analyzer": {
+            "indexAnalyzer": {
                 "tokenizer": {
                     "class": "solr.ClassicTokenizerFactory"
                 },
                 "filters": [
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
                     { "class": "solr.LowerCaseFilterFactory" },
-                    { "class": "solr.EnglishMinimalStemFilterFactory" }
+                    { "class": "solr.EnglishMinimalStemFilterFactory" },
+                    { "class": "solr.SynonymGraphFilterFactory", "synonyms":"mysynonyms.txt", "expand": true, "ignoreCase": true}
+                ]
+            },
+            "queryAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.ClassicTokenizerFactory"
+                },
+                "filters": [
+                    { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
+                    { "class": "solr.LowerCaseFilterFactory" },
+                    { "class": "solr.EnglishMinimalStemFilterFactory" },
+                    { "class": "solr.SynonymGraphFilterFactory", "synonyms":"mysynonyms.txt", "expand": true, "ignoreCase": true}
                 ]
             }
         },
         {
             "name": "ingredientsField",
             "class": "solr.TextField",
-            "analyzer": {
+            "indexAnalyzer": {
                 "tokenizer": {
                     "class": "solr.ClassicTokenizerFactory"
                 },
@@ -24,14 +36,27 @@
                     { "class": "solr.StopFilterFactory", "words": "stop.txt", "ignoreCase": "true" },
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
                     { "class": "solr.LowerCaseFilterFactory" },
-                    { "class": "solr.EnglishMinimalStemFilterFactory" }
+                    { "class": "solr.EnglishMinimalStemFilterFactory" },
+                    { "class": "solr.SynonymGraphFilterFactory", "synonyms":"mysynonyms.txt", "expand": true, "ignoreCase": true}
+                ]
+            },            
+            "queryAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.ClassicTokenizerFactory"
+                },
+                "filters": [
+                    { "class": "solr.StopFilterFactory", "words": "stop.txt", "ignoreCase": "true" },
+                    { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
+                    { "class": "solr.LowerCaseFilterFactory" },
+                    { "class": "solr.EnglishMinimalStemFilterFactory" },
+                    { "class": "solr.SynonymGraphFilterFactory", "synonyms":"mysynonyms.txt", "expand": true, "ignoreCase": true}
                 ]
             }
         },
         {
             "name": "bodyField",
             "class": "solr.TextField",
-            "analyzer": {
+            "indexAnalyzer": {
                 "tokenizer": {
                     "class": "solr.StandardTokenizerFactory"
                 },
@@ -39,7 +64,20 @@
                     { "class": "solr.StopFilterFactory", "words": "stopwords.txt", "ignoreCase": "true" },
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
                     { "class": "solr.LowerCaseFilterFactory" },
-                    { "class": "solr.EnglishMinimalStemFilterFactory" }
+                    { "class": "solr.EnglishMinimalStemFilterFactory" },
+                    { "class": "solr.SynonymGraphFilterFactory", "synonyms":"mysynonyms.txt", "expand": true, "ignoreCase": true}
+                ]
+            },
+            "queryAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.StandardTokenizerFactory"
+                },
+                "filters": [
+                    { "class": "solr.StopFilterFactory", "words": "stopwords.txt", "ignoreCase": "true" },
+                    { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
+                    { "class": "solr.LowerCaseFilterFactory" },
+                    { "class": "solr.EnglishMinimalStemFilterFactory" },
+                    { "class": "solr.SynonymGraphFilterFactory", "synonyms":"mysynonyms.txt", "expand": true, "ignoreCase": true}
                 ]
             }
         },
@@ -53,7 +91,8 @@
                 "filters": [
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
                     { "class": "solr.LowerCaseFilterFactory" },
-                    { "class": "solr.EnglishMinimalStemFilterFactory" }
+                    { "class": "solr.EnglishMinimalStemFilterFactory" },
+                    { "class": "solr.SynonymGraphFilterFactory", "synonyms":"mysynonyms.txt", "expand": true, "ignoreCase": true}
                 ]
             },
             "queryAnalyzer": {
@@ -63,7 +102,8 @@
                 "filters": [
                     { "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true },
                     { "class": "solr.LowerCaseFilterFactory" },
-                    { "class": "solr.EnglishMinimalStemFilterFactory" }
+                    { "class": "solr.EnglishMinimalStemFilterFactory" },
+                    { "class": "solr.SynonymGraphFilterFactory", "synonyms":"mysynonyms.txt", "expand": true, "ignoreCase": true}
                 ]
             }
         }
