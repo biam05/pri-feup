@@ -3,10 +3,10 @@ FROM solr:8.10
 WORKDIR /backend
 
 COPY data/food.csv /backend/data/food.csv
-#COPY data/food_subset1.csv /data/food_subset1.csv
-#COPY data/food_subset2.csv /data/food_subset2.csv
-#COPY data/food_subset3.csv /data/food_subset3.csv
-#COPY data/food_subset4.csv /data/food_subset4.csv
+#COPY data/food_subset1.csv /backend/data/food_subset1.csv
+#COPY data/food_subset2.csv /backend/data/food_subset2.csv
+#COPY data/food_subset3.csv /backend/data/food_subset3.csv
+#COPY data/food_subset4.csv /backend/data/food_subset4.csv
 
 COPY data/schema.json /backend/data/schema.json
 
